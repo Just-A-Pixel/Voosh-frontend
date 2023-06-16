@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import Form from "./auth/Form";
 import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -28,7 +27,6 @@ const Login = () => {
                     },
                 }
             );
-            // console.log(Cookies.get("jwt"));
             if (response.data.success) {
               console.log('successs')
               navigate('/')

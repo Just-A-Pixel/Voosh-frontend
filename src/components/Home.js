@@ -57,12 +57,11 @@ const Home = () => {
         } catch (error) {
             console.log(error);
         }
-
-        // getUserOrdersData()
     };
 
     useEffect(() => {
         getOrderData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

@@ -6,30 +6,8 @@ import { UserContext } from "../App";
 import Card from "./Card"
 
 const Orders = () => {
-    const [orders, setOrders] = useState([{ id: "" }]);
     const [userOrders, setUserOrders] = useState([{ id: "" }]);
-    const { state, dispatch } = useContext(UserContext);
-    const navigate = useNavigate();
-
-
-    const sendOrderData = async () => {
-        console.log(state.items);
-        const response = await axios.post(
-            `${process.env.REACT_APP_SERVER_URL}/data/orderList`,
-            {
-                items: state.items,
-            },
-            {
-                withCredentials: true,
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${Cookies.get("jwt")}`,
-                },
-            }
-        );
-        console.log(response);
-        getUserOrdersData()
-    };
+    const { state } = useContext(UserContext);
 
     const getUserOrdersData = async () => {
         console.log(Cookies.get("jwt"));
