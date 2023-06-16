@@ -1,13 +1,10 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
-import { useNavigate } from "react-router-dom";
-import { UserContext } from "../App";
 import Card from "./Card"
 
 const Orders = () => {
     const [userOrders, setUserOrders] = useState([{ id: "" }]);
-    const { state } = useContext(UserContext);
 
     const getUserOrdersData = async () => {
         console.log(Cookies.get("jwt"));
@@ -22,6 +19,7 @@ const Orders = () => {
 
     useEffect(() => {
         getUserOrdersData()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, {})
     return (
         <>
